@@ -1,6 +1,19 @@
 class BeaconsController < ApplicationController
 	def index
 		@beacons = Beacon.all
+
+		respond_to do |format|
+			format.html
+			format.json do 
+				stuff = {}
+				Beacon.all.each do |beacon|
+					stuff[:major] = beacon.major
+					stuff[:minor] = beacon.minor
+					stuff[:people] = beacon.people.count
+				end
+				render json: stuff.to_json
+			end
+		end
 	end
 
 	def person_enters
