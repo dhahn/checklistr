@@ -4,7 +4,7 @@ class BeaconsController < ApplicationController
 	end
 
 	def person_enters
-		beacon = Beacon.where(uuid: params[:uuid]).first
+		beacon = Beacon.where(major: params[:major], minor: params[:minor]).first
 		beacon.people << Person.where(beacon_id: beacon.id, name: params[:name] ).first_or_create
 
 		respond_to do |format|
