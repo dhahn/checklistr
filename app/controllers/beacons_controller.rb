@@ -2,6 +2,8 @@ class BeaconsController < ApplicationController
 	def index
 		@beacons = Beacon.all
 
+		Person.where("updated_at < ?", 15.seconds_ago).destroy_all
+
 		respond_to do |format|
 			format.html
 			format.json do 
@@ -19,7 +21,7 @@ class BeaconsController < ApplicationController
 	def person_enters
 		beacon = Beacon.where(major: params[:major], minor: params[:minor]).first
 		person = Person.where(beacon_id: beacon.id, name: params[:name]).first_or_initialize
-		#distnace in meters	
+		#distance in meters	
 		person.distance = params[:distance]
 		person.save
 
