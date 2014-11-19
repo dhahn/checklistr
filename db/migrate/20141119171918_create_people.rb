@@ -3,6 +3,7 @@ class CreatePeople < ActiveRecord::Migration
     create_table :people do |t|
       t.references :beacon, index: true
       t.string :name
+      t.float :distance
 
       t.timestamps
     end

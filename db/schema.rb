@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20141119171918) do
   create_table "people", force: true do |t|
     t.integer  "beacon_id"
     t.string   "name"
+    t.float    "distance"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
