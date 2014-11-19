@@ -2,7 +2,7 @@ class BeaconsController < ApplicationController
 	def index
 		@beacons = Beacon.all
 
-		Person.where("updated_at < ?", 15.seconds.ago).destroy_all
+		Person.where("updated_at < ?", 3.seconds.ago).destroy_all
 
 		respond_to do |format|
 			format.html
