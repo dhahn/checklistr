@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'beacons#index'
+  get '/beacons' => "beacons#index"
+  get '/beacons/person_enters' => "beacons#person_enters"
   resources :items
 
   # Example of regular route:

@@ -1,1 +1,5 @@
-hello worlds
+<% @beacons.each do |beacon| %>
+	<div class="beacon">
+		<%= beacon.location %> - <%= beacon.people.count %> people here
+	</div>
+<% end %>
