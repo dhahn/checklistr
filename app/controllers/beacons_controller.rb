@@ -2,7 +2,7 @@ class BeaconsController < ApplicationController
 	def index
 		@beacons = Beacon.all
 
-		Person.where("updated_at < ?", 3.seconds.ago).destroy_all
+		Person.where("updated_at < ?", 4.seconds.ago).destroy_all
 
 		respond_to do |format|
 			format.html
@@ -11,7 +11,7 @@ class BeaconsController < ApplicationController
 				Beacon.all.each do |beacon|
 					stuff[:major] = beacon.major
 					stuff[:minor] = beacon.minor
-					stuff[:people] = beacon.people.where("distance < 2.5").count
+					stuff[:people] = beacon.people.where("distance < 4").count
 				end
 				render json: stuff[:people].to_json
 			end
