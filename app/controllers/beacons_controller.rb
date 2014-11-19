@@ -11,7 +11,7 @@ class BeaconsController < ApplicationController
 				Beacon.all.each do |beacon|
 					stuff[:major] = beacon.major
 					stuff[:minor] = beacon.minor
-					stuff[:people] = beacon.people.count
+					stuff[:people] = beacon.people.where("distance < 2.5").count
 				end
 				render json: stuff[:people].to_json
 			end
