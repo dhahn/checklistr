@@ -13,7 +13,7 @@ class BeaconsController < ApplicationController
 					stuff[:minor] = beacon.minor
 					stuff[:people] = beacon.people.count
 				end
-				render json: stuff.to_json
+				render json: stuff[:people].to_json
 			end
 		end
 	end
