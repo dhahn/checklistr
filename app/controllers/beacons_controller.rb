@@ -24,6 +24,7 @@ class BeaconsController < ApplicationController
 		#distance in meters	
 		person.distance = params[:distance]
 		person.save
+		person.touch
 
 		beacon.people << person
 
