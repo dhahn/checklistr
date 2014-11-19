@@ -1,0 +1,17 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: checklistr
+  pool: 5
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: checklistr_dev
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: checklistr_test
+  pool: 5

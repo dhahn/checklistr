@@ -1,0 +1,27 @@
+<ul class="list">
+  <div class="lines"></div>
+
+  <li>
+    <%= form_for(Item.new) do |f| %>
+      <%= f.text_field :name, autofocus: "autofocus", placeholder: "Add Item to Checklist" %>
+      <%= f.submit "Create Item", id: "item-submit" %> 
+    <% end %>
+  </li>
+
+  <% @items.each do |item| %>
+    <li class="<%= item.completed? ? "completed" : "not-completed" %>">
+      <span><%= item.name %></span>
+
+      <%= link_to item, method: :delete, class: "delete-item", id: "delete-item-#{item.id}" do %>
+        <img src="/assets/remove.png  ">
+      <% end %>
+        
+      <% unless item.completed? %>
+        <%= link_to item_path(item, item: { completed_at: Time.now }), :method => :put, class: "complete-item", id: "complete-item-#{item.id}" do %>
+          <img src="/assets/completed.png  ">
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
