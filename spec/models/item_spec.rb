@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Item, :type => :model do
+RSpec.describe "wlaf;sdjf;", :type => :model do
 	let(:item) { Item.new(name: "Let's do this") }
 
 	it "must have a name" do

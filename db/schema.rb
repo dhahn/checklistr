@@ -11,20 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119171918) do
+ActiveRecord::Schema.define(version: 20141024213808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "beacons", force: true do |t|
-    t.string   "human_name"
-    t.string   "uuid"
-    t.string   "minor"
-    t.string   "major"
-    t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "items", force: true do |t|
     t.string   "name"
@@ -32,15 +22,5 @@ ActiveRecord::Schema.define(version: 20141119171918) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "people", force: true do |t|
-    t.integer  "beacon_id"
-    t.string   "name"
-    t.float    "distance"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "people", ["beacon_id"], name: "index_people_on_beacon_id", using: :btree
 
 end
